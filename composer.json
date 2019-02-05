@@ -1,0 +1,8 @@
+{
+    "name": "phptheme/theme-clean-blog",
+    "autoload": {
+        "psr-4": {
+            "Theme\\CleanBlog\\": ""
+        }
+    }
+}

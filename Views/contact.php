@@ -1,0 +1,3 @@
+<?= $text;?>
+
+<?= PHPTheme::widget('contactForm');?>
