@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('<?= PHPTheme::url($image);?>')">
+<header class="masthead" style="background-image: url('<?= $image;?>')">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">

@@ -12,14 +12,21 @@ class Header extends Widget
 
 	public $description = 'A Blog Theme by Start Bootstrap';
 
-	public $image = 'img/home-bg.jpg';
+	public $image;
 
 	public function render()
 	{
+        $image = $this->image;
+
+        if (!$image)
+        {
+            $image = PHPTheme::url('img/home-bg.jpg');
+        }
+
 		return PHPTheme::view('header', [
 			'title' => $this->title,
 			'description' => $this->description,
-			'image' => $this->image
+			'image' => $image
 		]);
 	}
 
