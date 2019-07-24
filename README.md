@@ -35,11 +35,8 @@ app/Config/Autoload.php
 	public function __construct()
 	{
         ...
-
 		$psr4 = [
-
             ...
-
             'BasicApp\CleanBlogTheme' => dirname(dirname(COMPOSER_PATH)) . '/vendor/basic-app/theme-clean-blog'
 		];
 	}
