@@ -2,9 +2,6 @@
 
 namespace BasicApp\CleanBlogTheme;
 
-class Theme extends \PhpTheme\CleanBlogTheme\Theme
+class Theme extends ThemeAbstract
 {
-
-    public $baseUrl = '/startbootstrap-clean-blog';
-
 }
