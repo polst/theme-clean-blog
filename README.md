@@ -9,8 +9,28 @@ composer.json
 ~~~
 {
     "require": {
+        "phptheme/core": "dev-master",
         "basic-app/theme-clean-blog-assets": "1.0"
     },
+    "scripts": {
+        "post-update-cmd": [
+            "@composer dump-autoload",
+            "PhpTheme\\Core\\Composer::postUpdate"
+        ]                
+    },
+    "extra": {
+        "PhpTheme\\Core\\Composer::postUpdate": {
+            "copyFiles": [
+                {
+                    "vendor/basic-app/theme-clean-blog-assets/css": "public/startbootstrap-clean-blog/css",
+                    "vendor/basic-app/theme-clean-blog-assets/img": "public/startbootstrap-clean-blog/img",
+                    "vendor/basic-app/theme-clean-blog-assets/js": "public/startbootstrap-clean-blog/js",
+                    "vendor/basic-app/theme-clean-blog-assets/scss": "public/startbootstrap-clean-blog/scss",
+                    "vendor/basic-app/theme-clean-blog-assets/vendor": "public/startbootstrap-clean-blog/vendor"
+                }
+            ]
+        }
+    },    
     "repositories": [
         {
             "type": "package",
