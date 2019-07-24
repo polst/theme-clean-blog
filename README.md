@@ -4,6 +4,8 @@ Design by: [Start Bootstrap](https://startbootstrap.com/)
 
 ### Installation
 
+composer.json
+
 ~~~
 {
     "require": {
@@ -23,5 +25,23 @@ Design by: [Start Bootstrap](https://startbootstrap.com/)
             }
         }
     ]
+}
+~~~
+
+app/Config/Autoload.php
+
+~~~
+{
+	public function __construct()
+	{
+        ...
+
+		$psr4 = [
+
+            ...
+
+            'BasicApp\CleanBlogTheme' => dirname(dirname(COMPOSER_PATH)) . '/vendor/basic-app/theme-clean-blog'
+		];
+	}
 }
 ~~~
