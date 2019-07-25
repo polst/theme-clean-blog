@@ -2,6 +2,8 @@
 
 namespace BasicApp\CleanBlogTheme;
 
+use BasicApp\Helpers\Html;
+
 class Theme extends ThemeAbstract
 {
 
@@ -9,7 +11,7 @@ class Theme extends ThemeAbstract
     {
         parent::__construct();
 
-        $this->head .= Html::linkCss('/themes/startbootstrap-clean-blog/custom.css'); 
+        $this->head .= Html::linkCss($this->baseUrl . '/custom.css'); 
     }
 
 }
