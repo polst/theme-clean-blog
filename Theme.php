@@ -2,7 +2,7 @@
 
 namespace BasicApp\CleanBlogTheme;
 
-use BasicApp\Helpers\Html;
+use PhpTheme\Helpers\Html;
 
 class Theme extends ThemeAbstract
 {
