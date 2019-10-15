@@ -2,7 +2,7 @@
 
 namespace BasicApp\CleanBlogTheme;
 
-use PhpTheme\Helpers\Html;
+use PhpTheme\Html\HtmlHelper;
 
 class Theme extends ThemeAbstract
 {
@@ -11,7 +11,7 @@ class Theme extends ThemeAbstract
     {
         parent::__construct();
 
-        $this->head .= Html::linkCss($this->baseUrl . '/custom.css'); 
+        $this->head .= HtmlHelper::linkCss($this->baseUrl . '/custom.css'); 
     }
 
 }
