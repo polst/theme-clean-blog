@@ -7,11 +7,16 @@ SystemEvents::onUpdate(function()
 {
     $themeDir = FCPATH . 'themes' . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog';
 
+    if (is_dir($themeDir))
+    {
+        return;
+    }
+
     CliHelper::downloadToFile('https://codeload.github.com/BlackrockDigital/startbootstrap-clean-blog/zip/master', $themeDir . '.zip');
 
     CliHelper::zipExtractTo($themeDir . '.zip', $themeDir);
 
-    CliHelper::delete($themeDir . '.zip');
+    //CliHelper::delete($themeDir . '.zip');
 
     CliHelper::copy($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master/css', $themeDir . DIRECTORY_SEPARATOR . 'css');
 
@@ -26,7 +31,7 @@ SystemEvents::onUpdate(function()
     CliHelper::copy(dirname(__DIR__) . '/custom.css', FCPATH . 'themes/startbootstrap-clean-blog/custom.css');
 });
 
-SystemEvents::onThemeList(function($event)
+SystemEvents::onThemes(function($event)
 {
     $class = BasicApp\CleanBlogTheme\Theme::class;
 
