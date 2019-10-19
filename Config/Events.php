@@ -3,37 +3,51 @@
 use BasicApp\System\SystemEvents;
 use BasicApp\Helpers\CliHelper;
 
-SystemEvents::onUpdate(function()
+if (class_exists(SystemEvents::class))
 {
-    $themeDir = FCPATH . 'themes' . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog';
-
-    if (is_dir($themeDir))
+    SystemEvents::onUpdate(function()
     {
-        return;
-    }
+        $themeDir = FCPATH . 'themes' . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog';
 
-    CliHelper::downloadToFile('https://codeload.github.com/BlackrockDigital/startbootstrap-clean-blog/zip/master', $themeDir . '.zip');
+        if (is_dir($themeDir))
+        {
+            return;
+        }
 
-    CliHelper::zipExtractTo($themeDir . '.zip', $themeDir);
+        CliHelper::downloadToFile(
+            'https://codeload.github.com/BlackrockDigital/startbootstrap-clean-blog/zip/master', 
+            $themeDir . '.zip'
+        );
 
-    //CliHelper::delete($themeDir . '.zip');
+        CliHelper::zipExtractTo($themeDir . '.zip', $themeDir);
 
-    CliHelper::copy($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master/css', $themeDir . DIRECTORY_SEPARATOR . 'css');
+        CliHelper::delete($themeDir . '.zip');
 
-    CliHelper::copy($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master/img', $themeDir . DIRECTORY_SEPARATOR . 'img');
+        $dirs = ['vendor', 'js', 'img', 'css'];
 
-    CliHelper::copy($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master/js', $themeDir . DIRECTORY_SEPARATOR . 'js');
+        foreach($dirs as $dir)
+        {
+            CliHelper::copy(
+                $themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master' . DIRECTORY_SEPARATOR . $dir, 
+                $themeDir . DIRECTORY_SEPARATOR . $dir
+            );
+        }
 
-    CliHelper::copy($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master/vendor', $themeDir . DIRECTORY_SEPARATOR . 'vendor');
+        CliHelper::delete($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master');
 
-    CliHelper::delete($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master');
+        CliHelper::copy(
+            dirname(__DIR__) . DIRECTORY_SEPARATOR . 'custom.css', 
+            $themeDir . DIRECTORY_SEPARATOR . 'custom.css'
+        );
+    });
+}
 
-    CliHelper::copy(dirname(__DIR__) . '/custom.css', FCPATH . 'themes/startbootstrap-clean-blog/custom.css');
-});
-
-SystemEvents::onThemes(function($event)
+if (class_exists(SystemEvents::class))
 {
-    $class = BasicApp\CleanBlogTheme\Theme::class;
+    SystemEvents::onThemes(function($event)
+    {
+        $class = BasicApp\CleanBlogTheme\Theme::class;
 
-    $event->result[$class] = 'Start Bootstrap - Clean Blog';
-});
+        $event->result[$class] = 'Start Bootstrap - Clean Blog';
+    });
+}
