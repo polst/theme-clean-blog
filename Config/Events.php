@@ -1,7 +1,9 @@
 <?php
 
+use BasicApp\Site\SiteEvents;
 use BasicApp\System\SystemEvents;
 use BasicApp\Helpers\CliHelper;
+use BasicApp\CleanBlogTheme\Theme
 
 if (class_exists(SystemEvents::class))
 {
@@ -42,12 +44,10 @@ if (class_exists(SystemEvents::class))
     });
 }
 
-if (class_exists(SystemEvents::class))
+if (class_exists(SiteEvents::class))
 {
-    SystemEvents::onThemes(function($event)
+    SiteEvents::onThemes(function($event)
     {
-        $class = BasicApp\CleanBlogTheme\Theme::class;
-
-        $event->result[$class] = 'Start Bootstrap - Clean Blog';
+        $event->result[Theme::class] = 'Start Bootstrap - Clean Blog';
     });
 }
