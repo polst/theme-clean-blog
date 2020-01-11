@@ -4,7 +4,7 @@ namespace BasicApp\CleanBlogTheme;
 
 use PhpTheme\Html\HtmlHelper;
 
-class Theme extends ThemeAbstract
+class Theme extends ThemeAbstract implements \BasicApp\Site\SiteThemeInterface
 {
 
     public function __construct()
