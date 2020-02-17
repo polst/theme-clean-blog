@@ -1,11 +1,11 @@
 {
     "name": "basic-app/theme-clean-blog",
     "require": {
-        "phptheme/theme-clean-blog": "dev-master"
+        "phptheme/theme-clean-blog": "*"
     },
     "autoload": {
         "psr-4": {
-            "BasicApp\\CleanBlogTheme\\": ""
+            "BasicApp\\Themes\\CleanBlog\\": ""
         }
     }
 }
