@@ -3,7 +3,7 @@
 use BasicApp\Site\SiteEvents;
 use BasicApp\System\SystemEvents;
 use BasicApp\Helpers\CliHelper;
-use BasicApp\CleanBlogTheme\Theme;
+use BasicApp\Themes\CleanBlog\Theme;
 
 if (class_exists(SystemEvents::class))
 {
