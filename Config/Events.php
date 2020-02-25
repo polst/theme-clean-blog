@@ -3,7 +3,7 @@
 use BasicApp\Site\SiteEvents;
 use BasicApp\System\SystemEvents;
 use BasicApp\Helpers\CliHelper;
-use BasicApp\Themes\CleanBlog\Theme;
+use BasicApp\Themes\CleanBlog\SiteTheme;
 
 if (class_exists(SystemEvents::class))
 {
@@ -48,6 +48,6 @@ if (class_exists(SiteEvents::class))
 {
     SiteEvents::onThemes(function($event)
     {
-        $event->result[Theme::class] = 'Start Bootstrap - Clean Blog';
+        $event->result[SiteTheme::class] = 'Start Bootstrap - Clean Blog';
     });
 }
