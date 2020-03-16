@@ -1,5 +1,6 @@
 {
     "name": "basic-app/theme-clean-blog",
+    "license": "MIT",
     "require": {
         "phptheme/theme-clean-blog": "*"
     },
