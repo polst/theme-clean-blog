@@ -2,7 +2,7 @@
 
 namespace BasicApp\Themes\CleanBlog;
 
-use PhpTheme\Html\HtmlHelper;
+use BasicApp\Helpers\HtmlHelper;
 
 class Theme extends \PhpTheme\Themes\CleanBlog\Theme implements \BasicApp\Site\SiteThemeInterface
 {
