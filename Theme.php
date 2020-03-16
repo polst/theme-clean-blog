@@ -4,7 +4,7 @@ namespace BasicApp\Themes\CleanBlog;
 
 use BasicApp\Helpers\HtmlHelper;
 
-class Theme extends \PhpTheme\Themes\CleanBlog\Theme implements \BasicApp\Site\SiteThemeInterface
+class Theme extends \PhpTheme\Themes\CleanBlog\Theme
 {
 
     public $baseUrl = '/themes/startbootstrap-clean-blog';
