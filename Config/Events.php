@@ -17,7 +17,7 @@ if (class_exists(SystemEvents::class))
         }
 
         CliHelper::downloadToFile(
-            'https://codeload.github.com/BlackrockDigital/startbootstrap-clean-blog/zip/master', 
+            'https://codeload.github.com/BlackrockDigital/startbootstrap-clean-blog/zip/v5.0.10', 
             $themeDir . '.zip'
         );
 
@@ -30,12 +30,12 @@ if (class_exists(SystemEvents::class))
         foreach($dirs as $dir)
         {
             CliHelper::copy(
-                $themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master' . DIRECTORY_SEPARATOR . $dir, 
+                $themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-5.0.10' . DIRECTORY_SEPARATOR . $dir, 
                 $themeDir . DIRECTORY_SEPARATOR . $dir
             );
         }
 
-        CliHelper::delete($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-master');
+        CliHelper::delete($themeDir . DIRECTORY_SEPARATOR . 'startbootstrap-clean-blog-5.0.10');
 
         CliHelper::copy(
             dirname(__DIR__) . DIRECTORY_SEPARATOR . 'custom.css', 
